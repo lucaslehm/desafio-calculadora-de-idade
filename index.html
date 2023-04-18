@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idade</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora de Idade</h1>
+    </header>
+    <main>
+        <section id="principal">
+            <div id="conteudoPrincipal">
+                <form action="/" method="post" class="formulario">
+                    <div class="inputs">
+                        <div class="inputsDia">
+                            <label for="iDia">DIA</label>
+                            <input type="number" name="dia" id="iDia">
+                        </div>
+                        <div class="inputsMes">
+                            <label for="iMes">MÊS</label>
+                            <input type="number" name="mes" id="iMes">
+                        </div>
+                        <div class="inputsAno">
+                            <label for="iAno">ANO</label>
+                            <input type="number" name="dia" id="iAno">
+                        </div>
+                    </div>
+                    <div class="submitArea">
+                        <hr>
+                        <button class="botao"><img class="iconBotao" src="imagens/icon-arrow.svg" alt="submit-icon"></button>
+                    </div>
+                </form>
+                <div class="areaResultados">
+                    <p><span class="resultadoAno">--</span> anos</p>
+                    <p><span class="resultadoMeses">--</span> meses</p>
+                    <p><span class="resultadoDias">--</span> dias</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Desafio por <a href="https://www.frontendmentor.io/home" target="_blank" rel="external">Frontend Mentor</a>. Codificado por <a href="https://github.com/lucaslehm" target="_blank" rel="external">Lucas Lehm</a></p>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

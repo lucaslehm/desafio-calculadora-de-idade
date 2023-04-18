@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+/* Mobile First */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --font: 'Poppins', sans-serif;
+    --cor01: #F0F0F0;
+    --cor02: #151515;
+    --cor03: #864CFF;
+    --cor04: #9F9F9F;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+body {
+    background-color: var(--cor01)
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    color: var(--cor03);
+    border-bottom: 0.4px solid rgba(0, 0, 0, 0.097);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    color: var(--cor03);
+    border-top: 0.4px solid rgba(0, 0, 0, 0.097);
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #5b4cff;
+    font-size: 0.9em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #483cce;
+}
+
+#principal {
+    background-color: #F0F0F0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#conteudoPrincipal {
+    background-color: white;
+    width: 350px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 20px 20px 110px 20px;
+    box-shadow: 2px 2px 5px #0000001f;
+    transition: width .5s, height 0.5s;
+    transition-timing-function: ease;
+}
+
+.inputs {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.inputsDia,
+.inputsMes,
+.inputsAno {
+    display: flex;
+    flex-flow: column;
+}
+
+input {
+    color: #151515;
+    width: 90px;
+    height: 54px;
+    border-radius: 7px;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 22px;
+    border: none;
+    border: 0.1px solid var(--cor04);
+}
+
+label {
+    color: #5d5d5d;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.submitArea {
+    padding-top: 4.2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.botao {
+    background-color: var(--cor02);
+    border-radius: 50% 50%;
+    border: none;
+    height: 70px;
+    width: 70px;
+    justify-self: center;
+    align-self: center;
+    transform: translate(0em, -2.6em);
+}
+
+.botao:hover {
+    cursor: pointer;
+    background-color: #864CFF;
+}
+
+.iconBotao {
+    width: 30px;
+    height: 30px;
+}
+
+.areaResultados>p {
+    color: #151515;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 3em;
+}
+
+.resultadoAno,
+.resultadoMeses,
+.resultadoDias {
+    color: #864CFF;
+}
+
+@media screen and (min-width: 800px) {
+    #conteudoPrincipal {
+        width: 700px;
+        height: 500px;
+        padding: 20px 60px 20px 20px;
+        border-radius: 20px 20px 150px 20px;
+    }
+
+    .botao {
+        align-self: flex-end;
+        transform: translate(0em, -2.6em);
+    }
+
+    input {
+        width: 125px;
+        border-radius: 7px;
+        padding: 10px;
+        font-size: 22px;
+    }
+
+    .inputs {
+        margin-left: 20px;
+        justify-content: flex-start;
+        gap: 35px;
+    }
+
+    .areaResultados>p {
+        margin-left: 20px;
+        font-size: 4em;
+        transform: translate(0em, -1em);
+    }
+}
