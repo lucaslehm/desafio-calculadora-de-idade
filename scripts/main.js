@@ -1,17 +1,43 @@
 function escopoGlobal() {
+    const erro = document.querySelector('.erro')
     const form = document.querySelector('.formulario')
     form.addEventListener('submit', function (e) {
         e.preventDefault()
-        console.log('evento previnido')
-
         const inputDia = document.querySelector('#iDia')
         const diaUsuario = Number(inputDia.value)
         const inputMes = document.querySelector('#iMes')
         let mesUsuario = Number(inputMes.value - 1)
         const inputAno = document.querySelector('#iAno')
         const anoUsuario = Number(inputAno.value)
-
         const dataUsuario = criaDataUsuario(anoUsuario, mesUsuario, diaUsuario)
+
+        switch (mesUsuario + 1) {
+            case 2:
+                if (diaUsuario > 28) {
+                    erro.innerHTML = `insira uma data válida`
+                }
+            break
+            case 4:
+                if (diaUsuario > 30) {
+                    erro.innerHTML = `insira uma data válida`
+                }
+            break
+            case 6:
+                if (diaUsuario > 30) {
+                    erro.innerHTML = `insira uma data válida`
+                }
+            break
+            case 9:
+                if (diaUsuario > 30) {
+                    erro.innerHTML = `insira uma data válida`
+                }
+            break
+            case 11:
+                if (diaUsuario > 30) {
+                    erro.innerHTML = `insira uma data válida`
+                }
+            break
+        }
 
         // primeiro resultado é simples, 1 ano menos o outro
         const anoRes = document.querySelector('.resultadoAno')
