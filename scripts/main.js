@@ -1,157 +1,92 @@
-function escopoGlobal() {
-    const erro = document.querySelector('.erro')
+function global() {
     const form = document.querySelector('.formulario')
+
+    const returnAnos = document.querySelector('.resultadoAno')
+    const returnMeses = document.querySelector('.resultadoMeses')
+    const returnDias = document.querySelector('.resultadoDias')
+
     form.addEventListener('submit', function (e) {
         e.preventDefault()
-        const inputDia = document.querySelector('#iDia')
-        const diaUsuario = Number(inputDia.value)
-        const inputMes = document.querySelector('#iMes')
-        let mesUsuario = Number(inputMes.value - 1)
-        const inputAno = document.querySelector('#iAno')
-        const anoUsuario = Number(inputAno.value)
-        const dataUsuario = criaDataUsuario(anoUsuario, mesUsuario, diaUsuario)
 
-        switch (mesUsuario + 1) {
-            case 2:
-                if (diaUsuario > 28) {
-                    erro.innerHTML = `insira uma data válida`
-                }
-            break
-            case 4:
-                if (diaUsuario > 30) {
-                    erro.innerHTML = `insira uma data válida`
-                }
-            break
-            case 6:
-                if (diaUsuario > 30) {
-                    erro.innerHTML = `insira uma data válida`
-                }
-            break
-            case 9:
-                if (diaUsuario > 30) {
-                    erro.innerHTML = `insira uma data válida`
-                }
-            break
-            case 11:
-                if (diaUsuario > 30) {
-                    erro.innerHTML = `insira uma data válida`
-                }
-            break
+        const diaInput = document.querySelector('#iDia')
+        const mesInput = document.querySelector('#iMes')
+        const anoInput = document.querySelector('#iAno')
+        const diaUsuario = Number(diaInput.value)
+        const mesUsuario = Number(mesInput.value)
+        const anoUsuario = Number(anoInput.value)
+        const dataUsuario = [diaUsuario, mesUsuario, anoUsuario]
+        const dataAtual = criaDataAtual()
+
+        // Anos
+
+        let diffAnos = dataAtual[2] - anoUsuario
+
+        if (mesUsuario <= dataAtual[1]) {
+            returnAnos.innerHTML = diffAnos
+        } else {
+            diffAnos--
+            returnAnos.innerHTML = diffAnos
         }
 
-        // primeiro resultado é simples, 1 ano menos o outro
-        const anoRes = document.querySelector('.resultadoAno')
-        const dataAtual = criarData()
-        const anoAtual = dataAtual[2]
-        let mesAtual = dataAtual[1]
-        const diaAtual = dataAtual[0]
+        // Meses
 
-        mesAtual--
+        let diffMeses = dataAtual[1] - mesUsuario // valor negativo
 
-        let anoTexto = Number(anoAtual - anoUsuario)
+        diffMeses = Math.abs(diffMeses) // valor positivo
 
-        if (mesUsuario > mesAtual) {
-            anoTexto--
-        } else if (diaUsuario > diaAtual) {
-            anoTexto--
-        }
-        anoRes.innerHTML = anoTexto
+        diffMeses = 12 - diffMeses
 
-        // o segundo resultado é a quantidade de meses que eu vivi caso eu ainda não tenha feito aniversario
-
-        const mesRes = document.querySelector('.resultadoMeses')
-
-        mesAtual++
-        mesUsuario++
-
-        let mesesVividos = (mesUsuario - mesAtual) - 12
-        mesesVividos = Math.abs(mesesVividos)
-
-        switch (mesesVividos) {
+        switch (diffMeses) {
             case 12:
-                mesesVividos = '00'
-                break
-            case 13:
-                mesesVividos = 0
-                mesesVividos++
-                break
-            case 14:
-                mesesVividos = 1
-                mesesVividos++
-                break
-            case 15:
-                mesesVividos = 2
-                mesesVividos++
-                break
-            case 16:
-                mesesVividos = 3
-                mesesVividos++
-                break
-            case 17:
-                mesesVividos = 4
-                mesesVividos++
-                break
-            case 18:
-                mesesVividos = 5
-                mesesVividos++
-                break
-            case 19:
-                mesesVividos = 6
-                mesesVividos++
-                break
-            case 20:
-                mesesVividos = 7
-                mesesVividos++
-                break
-            case 21:
-                mesesVividos = 8
-                mesesVividos++
-                break
-            case 22:
-                mesesVividos = 9
-                mesesVividos++
-                break
-            case 23:
-                mesesVividos = 10
-                mesesVividos++
+                diffMeses = 0
                 break
         }
 
-        if (diaAtual < diaUsuario) {
-            mesesVividos--
+        returnMeses.innerHTML = diffMeses
+
+        // Dias
+
+        let diffDias = dataAtual[0] - diaUsuario
+
+        switch (mesUsuario) {
+            case 1:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 2:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 28 - diffDias
+                    returnDias.innerHTML = diffDias
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+                case 3:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
         }
-
-        mesRes.innerHTML = mesesVividos
-
-        // O ultimo são os dias.. a quantidade de dias que eu vivi dentro deste mes
-
-        const diaRes = document.querySelector('.resultadoDias')
-        let diasVividos = (diaUsuario - diaAtual)
-        diasVividos = Math.abs(diasVividos)
-
-        if (diaAtual < diaUsuario) {
-            diasVividos = 30 - diasVividos
-        }
-
-        if (diasVividos === 0 ) {
-            mesRes.innerHTML = mesesVividos
-        }
-
-        diaRes.innerHTML = diasVividos
-
     })
 
-    function criaDataUsuario(anoUsuario, mesUsuario, diaUsuario) {
-        const dataUsuario = new Date(anoUsuario, mesUsuario, diaUsuario)
-        return dataUsuario
-    }
-    function criarData() {
+    function criaDataAtual() {
         const data = new Date()
-        const dia = data.getDate()
-        const mes = data.getMonth() + 1
-        const ano = data.getFullYear()
-        const arrData = [dia, mes, ano]
-        return arrData
+        const diaAtual = data.getDate()
+        const mesAtual = data.getMonth() + 1
+        const anoAtual = data.getFullYear()
+        const dataAtual = [diaAtual, mesAtual, anoAtual]
+        return dataAtual
     }
+
 }
-escopoGlobal()
+global()
