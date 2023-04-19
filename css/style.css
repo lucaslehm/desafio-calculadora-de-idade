@@ -140,11 +140,19 @@ label {
 }
 
 .erro {
-    max-width: 92px;
+    text-align: center;
+    margin-top: 5px;
     font-size: 11px;
     font-style: italic;
     font-weight: 600;
-    color: rgb(209, 56, 56);
+    color: #dd3333;
+}
+
+.labelErro {
+    color: #dd3333;
+}
+.inputErro {
+    border: 0.1px solid #dd3333
 }
 
 @media screen and (min-width: 800px) {

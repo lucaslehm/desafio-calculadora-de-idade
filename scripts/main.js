@@ -5,6 +5,17 @@ function global() {
     const returnMeses = document.querySelector('.resultadoMeses')
     const returnDias = document.querySelector('.resultadoDias')
 
+    const labelDia = document.querySelector('#labelDia')
+    const labelMes = document.querySelector('#labelMes')
+    const labelAno = document.querySelector('#labelAno')
+
+    const classDiaInput = document.querySelector('#iDia')
+    const classMesInput = document.querySelector('#iMes')
+    const classAnoInput = document.querySelector('#iAno')
+
+    const paragErro = document.querySelector('.erro')
+
+
     form.addEventListener('submit', function (e) {
         e.preventDefault()
 
@@ -16,6 +27,26 @@ function global() {
         const anoUsuario = Number(anoInput.value)
         const dataUsuario = [diaUsuario, mesUsuario, anoUsuario]
         const dataAtual = criaDataAtual()
+
+        switch (mesUsuario) {
+            case 1, 3, 5, 6, 7, 8, 10, 12: //meses final 31
+                console.log('mes 31')
+                break
+            case 2: // fevereiro final 28
+                if (diaUsuario > 28) {
+
+                } else {
+                    console.log('mes 28')
+                }
+                break
+            case 4, 6, 9, 11: // meses final 30
+                if (diaUsuario > 30) {
+
+                } else {
+                console.log('mes 30')
+                }
+                break
+        }
 
         // Anos
 
@@ -49,7 +80,7 @@ function global() {
         let diffDias = dataAtual[0] - diaUsuario
 
         switch (mesUsuario) {
-            case 1:
+            case 1, 3, 5, 6, 7, 8, 10, 12:
                 if (diffDias < 0) {
                     diffDias = Math.abs(diffDias)
                     diffDias = 31 - diffDias
@@ -67,10 +98,10 @@ function global() {
                     returnDias.innerHTML = diffDias
                 }
                 break
-                case 3:
+            case 4, 6, 9, 11:
                 if (diffDias < 0) {
                     diffDias = Math.abs(diffDias)
-                    diffDias = 31 - diffDias
+                    diffDias = 30 - diffDias
                     returnDias.innerHTML = diffDias
                 } else {
                     returnDias.innerHTML = diffDias
@@ -78,6 +109,10 @@ function global() {
                 break
         }
     })
+
+    function enviouForm() {
+
+    }
 
     function criaDataAtual() {
         const data = new Date()

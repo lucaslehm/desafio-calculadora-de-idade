@@ -17,22 +17,22 @@
                 <form action="/" method="post" class="formulario">
                     <div class="inputs">
                         <div class="inputsDia">
-                            <label for="iDia">DIA</label>
-                            <input type="number" name="dia" id="iDia" min="1" max="31" required>
-                            <p class="erro"></p>
+                            <label id="labelDia" class="labelErro" for="iDia">DIA</label>
+                            <input type="number" name="dia" id="iDia" min="1" max="31" required class="inputErro">
                         </div>
                         <div class="inputsMes">
-                            <label for="iMes">MÊS</label>
-                            <input type="number" name="mes" id="iMes" min="1" max="12" required>
+                            <label id="labelMes" class="labelErro" for="iMes">MÊS</label>
+                            <input type="number" name="mes" id="iMes" min="1" max="12" required class="inputErro">
                         </div>
                         <div class="inputsAno">
-                            <label for="iAno">ANO</label>
-                            <input type="number" name="dia" id="iAno" min="1" max="2023" required>
+                            <label id="labelAno" class="labelErro" for="iAno">ANO</label>
+                            <input type="number" name="dia" id="iAno" min="1" max="2023" required class="inputErro">
                         </div>
                     </div>
+                    <p class="erro">insira uma data valida</p>
                     <div class="submitArea">
                         <hr>
-                        <button class="botao"><img class="iconBotao" src="imagens/icon-arrow.svg" alt="submit-icon"></button>
+                        <button class="botao" onclick="enviouForm()"><img class="iconBotao" src="imagens/icon-arrow.svg" alt="submit-icon"></button>
                     </div>
                 </form>
                 <div class="areaResultados">
