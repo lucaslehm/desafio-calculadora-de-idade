@@ -1,11 +1,11 @@
-function global() {
+function global() { 
     const form = document.querySelector('.formulario')
 
     const returnAnos = document.querySelector('.resultadoAno')
-    const returnMeses = document.querySelector('.resultadoMeses')
-    const returnDias = document.querySelector('.resultadoDias')
+    const returnMeses = document.querySelector('.resultadoMeses') 
+    const returnDias = document.querySelector('.resultadoDias') 
 
-    const labelDia = document.querySelector('#labelDia')
+    const labelDia = document.querySelector('#labelDia') 
     const labelMes = document.querySelector('#labelMes')
     const labelAno = document.querySelector('#labelAno')
 
@@ -29,24 +29,86 @@ function global() {
         const dataAtual = criaDataAtual()
 
         switch (mesUsuario) {
-            case 1, 3, 5, 6, 7, 8, 10, 12: //meses final 31
-                console.log('mes 31')
+            case 1:
+                removeMsgErro()
+                removerClassesdeErro()
                 break
-            case 2: // fevereiro final 28
+            case 2:
                 if (diaUsuario > 28) {
-
+                    inserirClassesDeErro()
+                    addMsgErro()
+                    return
                 } else {
-                    console.log('mes 28')
+                    removeMsgErro()
+                    removerClassesdeErro()
                 }
                 break
-            case 4, 6, 9, 11: // meses final 30
+            case 3:
+                removeMsgErro()
+                removerClassesdeErro()
+                break
+            case 4:
                 if (diaUsuario > 30) {
-
+                    inserirClassesDeErro()
+                    addMsgErro()
+                    return
                 } else {
-                console.log('mes 30')
+                    removeMsgErro()
+                    removerClassesdeErro()
                 }
+                break
+            case 5:
+                removeMsgErro()
+                removerClassesdeErro()
+                break
+            case 6:
+                if (diaUsuario > 30) {
+                    inserirClassesDeErro()
+                    addMsgErro()
+                    return
+                } else {
+                    removeMsgErro()
+                    removerClassesdeErro()
+                }
+                break
+            case 7:
+                removeMsgErro()
+                removerClassesdeErro()
+                break
+            case 8:
+                removeMsgErro()
+                removerClassesdeErro()
+                break
+            case 9:
+                if (diaUsuario > 30) {
+                    inserirClassesDeErro()
+                    addMsgErro()
+                    return
+                } else {
+                    removeMsgErro()
+                    removerClassesdeErro()
+                }
+                break
+            case 10:
+                removeMsgErro()
+                removerClassesdeErro()
+                break
+            case 11:
+                if (diaUsuario > 30) {
+                    inserirClassesDeErro()
+                    addMsgErro()
+                    return
+                } else {
+                    removeMsgErro()
+                    removerClassesdeErro()
+                }
+                break
+            case 12:
+                removeMsgErro()
+                removerClassesdeErro()
                 break
         }
+
 
         // Anos
 
@@ -80,11 +142,90 @@ function global() {
         let diffDias = dataAtual[0] - diaUsuario
 
         switch (mesUsuario) {
-            case 1, 3, 5, 6, 7, 8, 10, 12:
+            case 1:
                 if (diffDias < 0) {
                     diffDias = Math.abs(diffDias)
                     diffDias = 31 - diffDias
                     returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 3:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 5:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 6:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 7:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 8:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 10:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 12:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 31 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
                 } else {
                     returnDias.innerHTML = diffDias
                 }
@@ -94,15 +235,52 @@ function global() {
                     diffDias = Math.abs(diffDias)
                     diffDias = 28 - diffDias
                     returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
                 } else {
                     returnDias.innerHTML = diffDias
                 }
                 break
-            case 4, 6, 9, 11:
+            case 4:
                 if (diffDias < 0) {
                     diffDias = Math.abs(diffDias)
                     diffDias = 30 - diffDias
                     returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 6:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 30 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 9:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 30 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
+                } else {
+                    returnDias.innerHTML = diffDias
+                }
+                break
+            case 11:
+                if (diffDias < 0) {
+                    diffDias = Math.abs(diffDias)
+                    diffDias = 30 - diffDias
+                    returnDias.innerHTML = diffDias
+                    diffMeses --
+                    returnMeses.innerHTML = diffMeses
                 } else {
                     returnDias.innerHTML = diffDias
                 }
@@ -110,8 +288,30 @@ function global() {
         }
     })
 
-    function enviouForm() {
+    function inserirClassesDeErro() {
+        labelDia.classList.add("labelErro")
+        labelMes.classList.add("labelErro")
+        labelAno.classList.add("labelErro")
+        classAnoInput.classList.add("inputErro")
+        classDiaInput.classList.add("inputErro")
+        classMesInput.classList.add("inputErro")
+    }
 
+    function removerClassesdeErro() {
+        labelDia.classList.remove("labelErro")
+        labelMes.classList.remove("labelErro")
+        labelAno.classList.remove("labelErro")
+        classAnoInput.classList.remove("inputErro")
+        classDiaInput.classList.remove("inputErro")
+        classMesInput.classList.remove("inputErro")
+    }
+
+    function addMsgErro() {
+        paragErro.innerHTML = 'Insira uma data válida'
+    }
+
+    function removeMsgErro() {
+        paragErro.innerHTML = ''
     }
 
     function criaDataAtual() {

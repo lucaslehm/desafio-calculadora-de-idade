@@ -17,22 +17,22 @@
                 <form action="/" method="post" class="formulario">
                     <div class="inputs">
                         <div class="inputsDia">
-                            <label id="labelDia" class="labelErro" for="iDia">DIA</label>
-                            <input type="number" name="dia" id="iDia" min="1" max="31" required class="inputErro">
+                            <label id="labelDia" for="iDia">DIA</label>
+                            <input type="number" name="dia" id="iDia" min="1" max="31" required>
                         </div>
                         <div class="inputsMes">
-                            <label id="labelMes" class="labelErro" for="iMes">MÊS</label>
-                            <input type="number" name="mes" id="iMes" min="1" max="12" required class="inputErro">
+                            <label id="labelMes" for="iMes">MÊS</label>
+                            <input type="number" name="mes" id="iMes" min="1" max="12" required>
                         </div>
                         <div class="inputsAno">
-                            <label id="labelAno" class="labelErro" for="iAno">ANO</label>
-                            <input type="number" name="dia" id="iAno" min="1" max="2023" required class="inputErro">
+                            <label id="labelAno" for="iAno">ANO</label>
+                            <input type="number" name="dia" id="iAno" min="1" max="2023" required>
                         </div>
                     </div>
-                    <p class="erro">insira uma data valida</p>
+                    <p class="erro"></p>
                     <div class="submitArea">
                         <hr>
-                        <button class="botao" onclick="enviouForm()"><img class="iconBotao" src="imagens/icon-arrow.svg" alt="submit-icon"></button>
+                        <button class="botao" onsubmit="enviouForm()"><img class="iconBotao" src="imagens/icon-arrow.svg" alt="submit-icon"></button>
                     </div>
                 </form>
                 <div class="areaResultados">
